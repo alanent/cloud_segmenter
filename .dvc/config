@@ -1,0 +1,4 @@
+[core]
+    remote = remote_storage_drone_segmenter
+['remote "remote_storage_drone_segmenter"']
+    url = /content/gdrive/MyDrive/DVC/remote_storage_drone_segmenter
