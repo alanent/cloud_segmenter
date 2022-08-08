@@ -1,0 +1,35 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python /content/cloud_segmenter/src/prepare.py
+    deps:
+    - path: data/data_raw/38-Cloud_training
+      md5: 8243045b77d10158d3c83ba0401515ce.dir
+      size: 8160228806
+      nfiles: 42038
+    - path: src/prepare.py
+      md5: ade5afa736202174f0a303e520931f69
+      size: 3097
+    outs:
+    - path: data/data_processed/train_ds
+      md5: ab7592b77c68a822127ce80ebe767187
+      size: 4593263
+    - path: data/data_processed/valid_ds
+      md5: 9b1eb8e27f4dbc0bb623811e52b61467
+      size: 4582575
+  train:
+    cmd: python /content/cloud_segmenter/src/train.py
+    deps:
+    - path: data/data_processed/train_ds
+      md5: a9950a0743e38a55300698627eda467e
+      size: 4593263
+    - path: data/data_processed/valid_ds
+      md5: e1e3b744b7dbdf0c2dca6a2237d754d7
+      size: 4582575
+    - path: src/train.py
+      md5: e56d4708117f5e305475c91024c7d35b
+      size: 10824
+    outs:
+    - path: models/model.pt
+      md5: e67d39bcc8f9eec89f0419c2ba309c25
+      size: 117975829

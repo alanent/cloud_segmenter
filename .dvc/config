@@ -1,4 +1,7 @@
 [core]
     remote = remote_storage
+[cache]
+    dir = /content/shared_cache
+    type = symlink
 ['remote "remote_storage"']
     url = /content/gdrive/MyDrive/DVC/remote_storage_cloud_segmenter

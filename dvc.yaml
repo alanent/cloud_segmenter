@@ -1,0 +1,17 @@
+stages:
+  prepare:
+    cmd: python /content/cloud_segmenter/src/prepare.py
+    deps:
+    - data/data_raw/38-Cloud_training
+    - src/prepare.py
+    outs:
+    - data/data_processed/train_ds
+    - data/data_processed/valid_ds
+  train:
+    cmd: python /content/cloud_segmenter/src/train.py
+    deps:
+    - data/data_processed/train_ds
+    - data/data_processed/valid_ds
+    - src/train.py
+    outs:
+    - models/model.pt
